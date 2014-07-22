@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>b23ddb82-c2c4-43da-9a4b-b4d149fda4e4</ProjectGuid>
+    <ProjectGuid>{8A72746D-78F5-4F2D-BFD4-F2B7B02812B9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PrediLiga.DatabaseDeployer</RootNamespace>
