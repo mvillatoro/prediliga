@@ -1,0 +1,43 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+            <div class="account-box">
+                <div class="logo ">
+                    <img src="http://media.virbcdn.com/cdn_images/crop_300x169/98/PageImage-483910-4354353-Screenshot20130103at32331PM.png" alt="" />
+                </div>
+                <form class="form-signin" ng-submit="login(userName, password)">
+                    <div class="form-group">
+                        <input ng-model="userName" type="text" class="form-control" placeholder="Username or Email" required autofocus />
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="password" type="password" class="form-control" placeholder="Password" required />
+                    </div>
+                    <label class="checkbox">
+                        <input type="checkbox" value="remember-me" />
+                        Keep me signed in
+                    </label>
+                    <button class="btn btn-primary btn-block" type="submit" ng-disabled="!(userName && password)" disabled>Sign In</button>
+                </form>
+                <a class="forgotLnk" href="/forgot-password">Forgot your password?</a>
+                <div class="or-box">
+                    <span class="or">OR</span>
+                    <div class="row">
+                        <div class="col-md-6 row-block">
+                            <a href="http://www.jquery2dotnet.com" class="btn btn-twitter btn-block">twitter</a>
+                        </div>
+                        <div class="col-md-6 row-block">
+                            <a href="https://accounts.google.com/" class="btn btn-google btn-block">Google</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="or-box row-block">
+                    <div class="row">
+                        <div class="col-md-12 row-block">
+                            <a href="/register" class="btn btn-primary btn-block">Create New Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
