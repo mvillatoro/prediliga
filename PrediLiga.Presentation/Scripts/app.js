@@ -51,6 +51,12 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/admin-settings',
                 controller: 'AdminSettingsCtrl'
             })
+            .state('predict-a-goal', {
+                url: '/predict-a-goal',
+               layout: 'basic',
+               templateUrl: '/views/predict-a-goal',
+               controller: 'PredictAGoalCtrl'
+             })
             .state('otherwise', {
                 url: '*path',
                 templateUrl: '/views/404',

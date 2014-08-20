@@ -114,6 +114,13 @@ angular.module('app.controllers', [])
             return false;
         };
     }])
+
+            // Path: /forgot-password
+    .controller('PredictAGoalCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+        $scope.$root.title = 'AngularJS SPA | Forgot Password';
+
+    }])
+
     // Path: /error/404
     .controller('Error404Ctrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'Error 404: Page Not Found';
