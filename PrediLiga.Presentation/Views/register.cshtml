@@ -62,10 +62,11 @@
     <input ng-model="first_name" type="text" class="form-control" placeholder="First Name" required autofocus />
     <input ng-model="last_name" type="text" class="form-control" placeholder="Last Name" required autofocus />
     <input ng-model="display_name" type="text" class="form-control" placeholder="Display Name" required autofocus />
-    <input ng-model="email" type="text" class="form-control" placeholder="Email" required autofocus />
+    <input ng-model="email" type="text" class="form-control" placeholder="Email" pattern="" required autofocus />
     <input ng-model="password" type="password" class="form-control" placeholder="Password" required autofocus />
     <input ng-model="confirm_password" type="password" class="form-control" placeholder="Confirm Password" required autofocus />
-    <form ng-submit="pushUser(first_name, last_name, display_name, email, password)">
+    <form ng-submit="aux()">
         <button class="btn btn-success" type="submit" ng-disabled="!(first_name && last_name && display_name && email && password && confirm_password)" disabled> Register</button>
+        <a class =" btn btn-success" href="/login"> Log In</a>
     </form>
 </div>

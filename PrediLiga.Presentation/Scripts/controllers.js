@@ -25,20 +25,49 @@ angular.module('app.controllers', [])
     .controller('LoginCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Sign In';
         // TODO: Authorize a user
-        $scope.login = function (user, password) {
 
-            $scope.IsUser(user, password);
-            return false;
+        $scope.ShowError = true;
+        $scope.login = function (user, password) {
+            var istrue = $scope.IsUser(user, password); 
+            if (istrue) {   
+                $location.path('/my-table');
+            } else {
+                $scope.ShowError = istrue; 
+                
+            }
         };
 
-        var allUsers = $scope.users;
+        $scope.users = [];
+        var master = {
+            nombre: "Wade",
+            apellido: "Wilson",
+            usuario: "Admin",
+            correo: "mvilla2208",
+            password: "alpha",
+            esAdmin: true,
+            activo: true
+        }
+        var mortal = {
+            nombre: "Bruce",
+            apellido: "Wayne",
+            usuario: "br_wayne",
+            correo: "br_wayne@batman.dc",
+            password: "alfred",
+            esAdmin: false,
+            activo: true
+        }
 
-        $scope.IsUser = function (user, password)
+
+
+        $scope.users.push(master);
+        $scope.users.push(mortal);
+
+        $scope.IsUser = function (username, password)
         {
-            for (i = 0; i < allUsers.length ; i++) {
-                if (user === allUsers[i]) {
-                    if (password === allUsers[i]) {
-                        $location.path('/my-table');
+            var i;
+            for (i = 0; i < $scope.users.length ; i++) {
+                if (username === $scope.users[i].usuario) {
+                    if (password === $scope.users[i].password) {
                         return true;
                     }
                 }
@@ -62,21 +91,7 @@ angular.module('app.controllers', [])
         // Path: /register
     .controller('RegisterCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Register';
-        $scope.users= [];
-
-        $scope.adduser = function (name, lastName, userName, email, password) {
-            var user = {
-                nombre: name,
-                apellido: lastName,
-                usuario: userName,
-                correo: email,
-                password: password,
-                activo: true
-            }
-        }
-        $scope.pushUser = function (first_name, last_name, display_name, email, password) {
-            var datos = $scope.adduser(first_name, last_name, display_name, email, password);
-            $scope.users.push(datos);
+        $scope.aux = function() {
             $location.path('/login');
         }
     }])
