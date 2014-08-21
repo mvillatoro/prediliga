@@ -43,7 +43,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 url: '/my-table',
                 layout: 'basic',
                 templateUrl: '/views/my-table',
-                controller: 'MyTableCtrl'
+                controller: 'AdminSettingsCtrl'
             })
              .state('admin-settings', {
                 url: '/admin-settings',
