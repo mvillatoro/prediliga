@@ -30,15 +30,15 @@
                 <td> </td>
             </tr>
             <tr ng-repeat=" liga in misligas">
-                <td>{{liga.id}}</td>
-                <td>{{liga.nombre}}</td>
-                <td>{{liga.proximo_Fecha}}</td>
-                <td>{{liga.proximo_Encuentro}}</td>
-                <td>{{liga.aciertos}}</td>
-                <td>{{liga.puntos}}</td>
-                <td class="btn-success"><a class="btn-link " href="/predict-a-goal">Predict-A-Goal</a></td>
+                <td>{{liga.idLiga}}</td>
+                <td>{{liga.league}}</td>
+                <td>{{liga.proximafecha}}</td>
+                <td>{{liga.proximoEncuentro}}</td>
+                <td>{{liga.acierto}}</td>
+                <td>{{liga.pts}}</td>
+                <td><a class=" btn btn-success" href="/predict-a-goal"> Predict-A-Goal</a></td>   
                 <td>Ver Calendario</td>
-                <td class="danger">Disable League</td>
+                <td><a class=" btn btn-danger"> Unfollow</a></td>   
             </tr>
         </table>
         
@@ -55,15 +55,16 @@
                 <td> </td>
             </tr>
 
-            <tr>
+            <tr>    
             <tr ng-repeat=" liga in NotFollowing">
-                <td>{{liga.id}}</td>
-                <td>{{liga.nombre}}</td>
-                <td>{{liga.proximo_Fecha}}</td>
-                <td>{{liga.proximo_Encuentro}}</td>
-                <td class="">Ver Calendario</td>
-                <td class="btn btn-primary" align="center" onclick="EditLeague()"> Edit</td>
-                <td class="danger">Disable League</td>
+                <td>{{liga.idLiga}}</td>
+                <td>{{liga.league}}</td>
+                <td>{{liga.proximafecha}}</td>
+                <td>{{liga.proximoEncuentro}}</td>
+                <td>Ver Calendario</td>
+                <form ng-submit="PushToMyTable()">
+                    <td><button class="btn btn-primary" type="submit">  Follow League</button></td>
+                </form>
             </tr>
         </table>
 </div>

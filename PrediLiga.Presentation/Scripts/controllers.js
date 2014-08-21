@@ -27,6 +27,7 @@ angular.module('app.controllers', [])
         // TODO: Authorize a user
 
         $scope.ShowError = true;
+
         $scope.login = function (user, password) {
             var istrue = $scope.IsUser(user, password); 
             if (istrue) {   
@@ -38,6 +39,7 @@ angular.module('app.controllers', [])
         };
 
         $scope.users = [];
+
         var master = {
             nombre: "Wade",
             apellido: "Wilson",
@@ -101,30 +103,62 @@ angular.module('app.controllers', [])
         $scope.misligas = [];
         $scope.NotFollowing = [];
 
-        $scope.AddToMyTable = function (LeagueIndex) {
-            $scope.misligas.push(NotFollowing[LeagueIndex]);
-
+        $scope.predict = function() {
+            $location.path('/predict-a-goal');
         }
 
-        var liga1= {
+
+        $scope.logout = function () {
+            $location.path('/');
+            return false;
+        };
+
+        $scope.PushToMyTable = function (idLigaA, leagueA, proximafechaA, proximoEncuentroA) {
+            var liston = $scope.AddToMyTable(idLigaA, leagueA, proximafechaA, proximoEncuentroA);
+            $scope.misligas.push(liston);
+        }
+
+        $scope.AddToMyTable = function (idLigaA, leagueA, proximafechaA, proximoEncuentroA) {
+            var leagueid = {
+                idLiga: idLigaA,
+                league: leagueA,
+                proximafecha: proximafechaA,
+                proximoEncuentro: proximoEncuentroA,
+                acierto: 0,
+                pts: 0
+            }
+            return leagueid;
+        }
+
+        var liga1 = {
             idLiga: 0,
+            league: "Italiana",
             proximafecha: "24 / 08 / 2014",
             proximoEncuentro: "Milan vs. inter",
             acierto: 0,
             pts:0
-    }
+            }
         var liga2 = {
             idLiga: 1,
+            league: "Inglesa",
             proximafecha: "24 / 08 / 2014",
             proximoEncuentro: "Arsenal vs. Liverpool",
             acierto: 0,
             pts: 0
         }
 
-
+        var liga3 = {
+            idLiga: 2,
+            league: "Hondureña",
+            proximafecha: "24 / 08 / 2014",
+            proximoEncuentro: "Olanchano vs. Patepluma",
+            acierto: 0,
+            pts: 0
+        }
 
         $scope.NotFollowing.push(liga1);
         $scope.NotFollowing.push(liga2);
+        $scope.misligas.push(liga3);
 
 
     }])
@@ -181,28 +215,20 @@ angular.module('app.controllers', [])
             }
         };
 
-        //modifica cualquier dato de un equipo
-        $scope.EditTeam = function () {
-            $location.path('/register');
-            return false;
-        };
-
-        //modifica cualquier dato de un partido
-        $scope.EditMatch = function () {
-            $location.path('/register');
-            return false;
-        };
-        //******************* /my-table ************************************************
-        $scope.logout = function () {
-            $location.path('/');
-            return false;
-        };
     }])
 
-            // Path: /forgot-password
+            // Path: /predict-a-goal
     .controller('PredictAGoalCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
         $scope.$root.title = 'AngularJS SPA | Forgot Password';
 
+
+        $scope.allCool = function () {
+            if ($scope.ShowMessage === true) {
+                $scope.ShowMessage = false;
+            } else {
+                $scope.ShowMessage = true;
+            }
+        };
     }])
             // Path: /leagues
     .controller('LeaguesCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
