@@ -6,6 +6,7 @@ namespace PrediLiga.Domain.Entities
     public class Account : IEntity
     {
         public virtual long Id { get; set; }
+        public virtual bool IsArchived { get; set; }
 
         public virtual string Email { get; set; }
 

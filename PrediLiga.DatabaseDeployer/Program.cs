@@ -29,15 +29,6 @@ namespace PrediLiga.DatabaseDeployer
             ISessionFactory sessionFactory = new SessionFactoryBuilder(new MappingScheme(), databaseConfiguration)
                 .Build(cfg => { dd = new DomainDrivenDatabaseDeployer.DatabaseDeployer(cfg); });
 
-            using (ISession sess = sessionFactory.OpenSession())
-            {
-                using (IDbCommand cmd = sess.Connection.CreateCommand())
-                {
-                    //cmd.ExecuteSqlFile("dropForeignKeys.sql");
-                    //cmd.ExecuteSqlFile("dropPrimaryKeys.sql");
-                    //cmd.ExecuteSqlFile("dropTables.sql");
-                }
-            }
             Console.WriteLine("");
             Console.WriteLine("Database dropped.");
             dd.Drop();
@@ -52,7 +43,7 @@ namespace PrediLiga.DatabaseDeployer
             {
                 dd.Seed(new List<IDataSeeder>
                             {
-                                new UserSeeder(session)
+                                new AccountSeeder(session)
                             });
                 tx.Commit();
             }
