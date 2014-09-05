@@ -1,7 +1,16 @@
 ﻿'use strict';
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('app.services', [])
-
-    .value('version', '0.1');
+angular.module('app.services',[])
+    .factory('Login', function ($http) {
+        return {
+            login: function (loginModel, success, error) {
+                $http
+                    .post(
+                        'http://localhost:1367/login', loginModel)
+                    .success(function (response) {
+                            success(response);
+                    })
+                    .error(error);
+            }
+        };
+    });

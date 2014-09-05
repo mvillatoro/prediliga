@@ -15,12 +15,16 @@ namespace PrediLiga.DatabaseDeployer
 
         public void Seed()
         {
-            _session.Save(new Account
+            var account = new Account
             {
                 Email = "test@test.com",
                 Name = "Test Name",
                 Password = "password"
-            });
+            };
+
+            
+
+            _session.Save(account);
         }
     }
 }

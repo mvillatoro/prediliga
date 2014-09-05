@@ -18,7 +18,7 @@ namespace PrediLiga.Data
 
             if (environment == "qa" || environment == "remote")
             {
-                connectionStringToUse = string.Empty;
+                connectionStringToUse = ConfigurationManager.ConnectionStrings["remote"].ToString();
             }
             else if (environment == "production")
             {

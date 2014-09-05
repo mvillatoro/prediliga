@@ -22,16 +22,8 @@ namespace PregiLiga.Api
         {
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
-
-            //GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            //WebApiConfig.Register(GlobalConfiguration.Configuration);
-            //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //RouteConfig.RegisterRoutes(Ro`uteTable.Routes);
-            //BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             BuildContainer();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler()); 
         }
 
         public IContainer BuildContainer()

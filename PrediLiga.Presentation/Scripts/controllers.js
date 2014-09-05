@@ -27,12 +27,19 @@ angular.module('app.controllers', [])
     }])
 
     // Path: /login
-    .controller('LoginCtrl', ['$scope', '$location', '$window', function ($scope, $location, $window) {
+    .controller('LoginCtrl', ['$scope', '$location', '$window','Login', function ($scope, $location, $window,Login) {
         $scope.$root.title = 'AngularJS SPA | Sign In';
         // TODO: Authorize a user
+        $scope.user = {
+
+        };
+
         $scope.login = function () {
-            $location.path('/');
-            return false;
+            Login.login($scope.user, function(response) {
+
+            }, function(error) {
+
+            });
         };
         $scope.$on('$viewContentLoaded', function () {
             $window.ga('send', 'pageview', { 'page': $location.path(), 'title': $scope.$root.title });
