@@ -6,7 +6,7 @@ angular.module('app.services',[])
             login: function (loginModel, success, error) {
                 $http
                     .post(
-                        'http://localhost:1367/login', loginModel)
+                        'http://prediliga-api.apphb.com/login', loginModel)
                     .success(function (response) {
                             success(response);
                     })
