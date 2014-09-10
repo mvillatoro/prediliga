@@ -23,19 +23,20 @@ namespace App.PrediLiga.Presentation
                 "~/scripts/vendor/angular.js",
                 "~/scripts/vendor/angular-ui-router.js",
                 "~/scripts/routingConfig.js",
+                "~/scripts/app.js",
                 "~/scripts/filters.js",
                 "~/scripts/services.js",
-                "~/scripts/services/AccountService.js",
-                "~/scripts/services/AuthService.js",
-                "~/scripts/services/ServerService.js",
+                "~/scripts/Services/AccountService.js",
+                "~/scripts/Services/AuthService.js",
+                "~/scripts/Services/ServerService.js",
                 "~/scripts/directives.js",
                 "~/scripts/controllers.js",
-                "~/scripts/controllers/AboutController.js",
-                "~/scripts/controllers/Error404Controller.js",
-                "~/scripts/controllers/HomeController.js",
-                "~/scripts/controllers/LoginController.js",
-                "~/scripts/controllers/RegisterController.js",
-                "~/scripts/app.js"));
+                "~/scripts/Controllers/AboutController.js",
+                "~/scripts/Controllers/Error404Controller.js",
+                "~/scripts/Controllers/HomeController.js",
+                "~/scripts/Controllers/LoginController.js",
+                "~/scripts/Controllers/RegisterController.js"
+                ));
         }
     }
 }
