@@ -33,7 +33,7 @@ namespace PregiLiga.Api
                 new Bootstrapper(containerBuilder).WithTask(new ConfigureDependencies(containerBuilder))
                                                   .WithTask(new ConfigureAutomapper())
                                                   .WithExampleMvcController<HomeController>()
-                                                  .WithExampleWebApiController<LoginController>()
+                                                  .WithExampleWebApiController<AccountController>()
                                                   .AndAfterContainerIsBuilt(
                                                       container =>
                                                       {
