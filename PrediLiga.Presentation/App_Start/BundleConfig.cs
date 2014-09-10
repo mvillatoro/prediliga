@@ -22,6 +22,7 @@ namespace App.PrediLiga.Presentation
                 "~/scripts/vendor/jquery-2.0.3.js",
                 "~/scripts/vendor/angular.js",
                 "~/scripts/vendor/angular-ui-router.js",
+                "~/scripts/routingConfig.js",
                 "~/scripts/filters.js",
                 "~/scripts/services.js",
                 "~/scripts/services/AccountService.js",
