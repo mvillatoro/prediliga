@@ -3,6 +3,7 @@
 using AutoMapper;
 using PrediLiga.Domain.Entities;
 using PregiLiga.Api.Controllers;
+using PregiLiga.Api.Models;
 
 namespace PregiLiga.Api
 {
