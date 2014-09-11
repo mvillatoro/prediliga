@@ -42,6 +42,11 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
                 templateUrl: '/views/register',
                 controller: 'RegisterCtrl'
             })
+            .state('leagues', {
+                url: '/leagues',
+                templateUrl: '/views/leagues',
+                controller: 'LeaguesCtrl'
+            })
             .state('otherwise', {
                 url: '*path',
                 templateUrl: '/views/404',

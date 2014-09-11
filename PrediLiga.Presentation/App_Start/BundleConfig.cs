@@ -30,13 +30,15 @@ namespace App.PrediLiga.Presentation
                 "~/scripts/Services/AccountService.js",
                 "~/scripts/Services/AuthService.js",
                 "~/scripts/Services/ServerService.js",
+                "~/scripts/Services/LeaguesService.js",
                 "~/scripts/directives.js",
                 "~/scripts/controllers.js",
                 "~/scripts/Controllers/AboutController.js",
                 "~/scripts/Controllers/Error404Controller.js",
                 "~/scripts/Controllers/HomeController.js",
                 "~/scripts/Controllers/LoginController.js",
-                "~/scripts/Controllers/RegisterController.js"
+                "~/scripts/Controllers/RegisterController.js",
+                "~/scripts/Controllers/LeaguesController.js"
                 ));
         }
     }

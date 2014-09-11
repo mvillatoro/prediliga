@@ -11,6 +11,13 @@ angular.module('app.controllers')
             $scope.login = function() {
                 Auth.login($scope.user, function(response) {
                     console.log(response);
+                    
+                    if (response.role.title === 'admin') {
+                        $location.path('/sc/tickets/new');
+                    } else {
+                        $location.path('/sub-contractor');
+                    }
+                    $scope.isLoading = false;
                 }, function(error) {
 
                 });
