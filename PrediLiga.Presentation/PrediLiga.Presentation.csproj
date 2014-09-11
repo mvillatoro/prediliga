@@ -138,6 +138,7 @@
     <Content Include="Scripts\controllers.spec.js">
       <DependentUpon>controllers.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\Controllers\LeaguesController.js" />
     <Content Include="Scripts\Controllers\AboutController.js" />
     <Content Include="Scripts\Controllers\Error404Controller.js" />
     <Content Include="Scripts\Controllers\HomeController.js" />
@@ -506,6 +507,7 @@
     <Content Include="Views\_PageStart.cshtml" />
     <Content Include="Views\About.cshtml" />
     <Content Include="Views\Register.cshtml" />
+    <Content Include="Views\Leagues.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

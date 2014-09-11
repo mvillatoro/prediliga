@@ -13,9 +13,9 @@ angular.module('app.controllers')
                     console.log(response);
                     
                     if (response.role.title === 'admin') {
-                        $location.path('/sc/tickets/new');
+                        $location.path('/leagues');
                     } else {
-                        $location.path('/sub-contractor');
+                        $location.path('/');
                     }
                     $scope.isLoading = false;
                 }, function(error) {
