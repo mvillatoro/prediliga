@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
-angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers'])
+angular.module('app', ['ngCookies','ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers'])
 
     // Gets executed during the provider registrations and configuration phase. Only providers and constants can be
     // injected here. This is to prevent accidental instantiation of services before they have been fully configured.
@@ -16,7 +16,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
         $httpProvider.defaults.headers.patch = { 'Content-Type': 'application/json' };
         $httpProvider.defaults.headers.get = { 'Content-Type': 'application/json' };
 
-        var access = routingConfig.accessLevels;
+        //var access = routingConfig.accessLevels;
 
         $stateProvider
             .state('home', {
