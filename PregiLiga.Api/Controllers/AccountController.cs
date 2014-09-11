@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System.Net;
 using System.Web;
 using System.Web.Http;
 using AcklenAvenue.Data.NHibernate;
@@ -32,13 +31,12 @@ namespace PregiLiga.Api.Controllers
         [HttpPost]
         [AcceptVerbs("POST","HEAD")]
         [POST("register")]
-        public Account Register([FromBody] AccountRegisterModel model)
+        public CreatedAccountModel Register([FromBody] AccountRegisterModel model)
         {
             var newUser = _mappingEngine.Map<AccountRegisterModel, Account>(model);
             var createdUser = _writeOnlyRepository.Create(newUser);
-            var x = Request;            
-            return createdUser;
-            
+            var craetedUserModel = _mappingEngine.Map<Account, CreatedAccountModel>(createdUser);
+            return craetedUserModel;
         }
 
 
@@ -65,24 +63,6 @@ namespace PregiLiga.Api.Controllers
             return authModel;
         }
 
-
-    }
-
-    public class LeaguesController:BaseApiController
-    {
-        public LeaguesController()
-        {
-            
-        }
-
-        public List<LeaguesModel> GetLeagues()
-        {
-            var userTokenModel = GetUserTokenModel();
-            if (userTokenModel == null)
-                throw new HttpException((int)HttpStatusCode.Unauthorized, "User is not authorized");
-
-            return new List<LeaguesModel>();
-        }
 
     }
 }
