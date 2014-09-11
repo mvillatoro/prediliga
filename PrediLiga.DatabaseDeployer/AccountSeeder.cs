@@ -1,10 +1,12 @@
-﻿using DomainDrivenDatabaseDeployer;
+﻿using System.Collections.Generic;
+using DomainDrivenDatabaseDeployer;
+using FluentNHibernate.Testing.Values;
 using NHibernate;
 using PrediLiga.Domain.Entities;
 
 namespace PrediLiga.DatabaseDeployer
 {
-    class AccountSeeder : IDataSeeder
+    public class AccountSeeder : IDataSeeder
     {
         readonly ISession _session;
 
@@ -15,16 +17,23 @@ namespace PrediLiga.DatabaseDeployer
 
         public void Seed()
         {
+
             var account = new Account
             {
                 Email = "test@test.com",
                 Name = "Test Name",
-                Password = "password"
+                Password = "password",
             };
 
+            var ligaBbva = _session.QueryOver<Leagues>().Where(x => x.Name == "Liga BBVA").SingleOrDefault();
+
+            account.AddLeagues(ligaBbva);
             
 
             _session.Save(account);
         }
     }
+
+    
+
 }

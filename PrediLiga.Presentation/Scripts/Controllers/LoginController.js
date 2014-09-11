@@ -1,7 +1,7 @@
 ﻿'use strict';
 angular.module('app.controllers')
     .controller('LoginCtrl', [
-        '$scope', '$location', '$window', 'Account', function($scope, $location, $window, Account) {
+        '$scope', '$location', '$window', 'Account','Auth', function($scope, $location, $window, Account,Auth) {
             $scope.$root.title = 'AngularJS SPA | Sign In';
             // TODO: Authorize a user
             $scope.user = {
@@ -9,7 +9,7 @@ angular.module('app.controllers')
             };
 
             $scope.login = function() {
-                Account.login($scope.user, function(response) {
+                Auth.login($scope.user, function(response) {
                     console.log(response);
                 }, function(error) {
 
