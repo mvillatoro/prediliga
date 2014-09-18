@@ -1,29 +1,20 @@
 ﻿'use strict';
 
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
-angular.module('app', ['ngCookies','ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers'])
+angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directives', 'app.controllers'])
 
     // Gets executed during the provider registrations and configuration phase. Only providers and constants can be
     // injected here. This is to prevent accidental instantiation of services before they have been fully configured.
-    .config(['$stateProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $locationProvider, $httpProvider) {
+    .config(['$stateProvider', '$locationProvider', function ($stateProvider, $locationProvider) {
 
         // UI States, URL Routing & Mapping. For more info see: https://github.com/angular-ui/ui-router
         // ------------------------------------------------------------------------------------------------------------
-
-        $httpProvider.defaults.headers.common = { 'Content-Type': 'application/json' };
-        $httpProvider.defaults.headers.post = { 'Content-Type': 'application/json' };
-        $httpProvider.defaults.headers.put = { 'Content-Type': 'application/json' };
-        $httpProvider.defaults.headers.patch = { 'Content-Type': 'application/json' };
-        $httpProvider.defaults.headers.get = { 'Content-Type': 'application/json' };
-
-        //var access = routingConfig.accessLevels;
 
         $stateProvider
             .state('home', {
                 url: '/',
                 templateUrl: '/views/index',
-                controller: 'HomeCtrl',
-                
+                controller: 'HomeCtrl'
             })
             .state('about', {
                 url: '/about',
@@ -36,16 +27,47 @@ angular.module('app', ['ngCookies','ui.router', 'app.filters', 'app.services', '
                 templateUrl: '/views/login',
                 controller: 'LoginCtrl'
             })
+            .state('forgot-password', {
+                url: '/forgot-password',
+                layout: 'basic',
+                templateUrl: '/views/forgot-password',
+                controller: 'ForgotPasswordCtrl'
+            })
             .state('register', {
                 url: '/register',
                 layout: 'basic',
                 templateUrl: '/views/register',
                 controller: 'RegisterCtrl'
             })
+            .state('my-table', {
+                url: '/my-table',
+                layout: 'basic',
+                templateUrl: '/views/my-table',
+                controller: 'MyTableCtrl'
+            })
+             .state('admin-settings', {
+                url: '/admin-settings',
+                layout: 'basic',
+                templateUrl: '/views/admin-settings',
+                controller: 'AdminSettingsCtrl'
+            })
+            .state('predict-a-goal', {
+                url: '/predict-a-goal',
+               layout: 'basic',
+               templateUrl: '/views/predict-a-goal',
+               controller: 'PredictAGoalCtrl'
+            })
             .state('leagues', {
                 url: '/leagues',
+                layout: 'basic',
                 templateUrl: '/views/leagues',
                 controller: 'LeaguesCtrl'
+            })
+            .state('calendar', {
+                url: '/calendar',
+                layout: 'basic',
+                templateUrl: '/views/calendar',
+                controller: 'CalendarCtrl'
             })
             .state('otherwise', {
                 url: '*path',
@@ -55,22 +77,11 @@ angular.module('app', ['ngCookies','ui.router', 'app.filters', 'app.services', '
 
         $locationProvider.html5Mode(true);
 
-        $httpProvider.interceptors.push(function ($q, $location) {
-            return {
-                'responseError': function (response) {
-                    if (response.status === 401 || response.status === 403) {
-                        $location.path('/login');
-                    }
-                    return $q.reject(response);
-                }
-            };
-        });
-
     }])
 
     // Gets executed after the injector is created and are used to kickstart the application. Only instances and constants
     // can be injected here. This is to prevent further system configuration during application run time.
-    .run(['$templateCache', '$rootScope', '$state', '$stateParams', 'Auth', function ($templateCache, $rootScope, $state, $stateParams,Auth) {
+    .run(['$templateCache', '$rootScope', '$state', '$stateParams', function ($templateCache, $rootScope, $state, $stateParams) {
 
         // <ui-view> contains a pre-rendered template for the current view
         // caching it will prevent a round-trip to a server at the first page load
@@ -80,22 +91,6 @@ angular.module('app', ['ngCookies','ui.router', 'app.filters', 'app.services', '
         // Allows to retrieve UI Router state information from inside templates
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
-
-        $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-            if (!Auth.authorize(toState.data.access)) {
-                $rootScope.error = "Seems like you tried accessing a route you don't have access to...";
-                event.preventDefault();
-
-                if (fromState.url === '^') {
-                    if (Auth.isLoggedIn()) {
-                        $state.go('home');
-                    } else {
-                        $rootScope.error = null;
-                        $state.go('login');
-                    }
-                }
-            }
-        });
 
         $rootScope.$on('$stateChangeSuccess', function (event, toState) {
 

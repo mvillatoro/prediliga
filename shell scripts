@@ -1,0 +1,30 @@
+[33mcommit 8cf0e97f0e419218529883a8af7702609de11068[m
+Author: Mario <mvilla2208@gmail.com>
+Date:   Wed Aug 20 16:08:53 2014 -0600
+
+    Fresh Start
+
+[33mcommit 242cd0fa3b20723194e83a966e9047756b61d9db[m
+Author: Mario <mvilla2208@gmail.com>
+Date:   Wed Aug 20 15:57:00 2014 -0600
+
+    comentario de prueba
+
+[33mcommit a0eaa01253a2d8f340e032c2dc47d1facfffc74d[m
+Merge: 90e25e5 10bdd26
+Author: Mario <mvilla2208@gmail.com>
+Date:   Wed Aug 20 15:31:59 2014 -0600
+
+    primer commit
+
+[33mcommit 90e25e54b9fedf163057d6ccc26d553643560d6e[m
+Author: Mario <mvilla2208@gmail.com>
+Date:   Wed Aug 20 15:24:02 2014 -0600
+
+    primer commit
+
+[33mcommit 10bdd26accb798369b63fb1079e478e5703d7e48[m
+Author: Mario <mvilla2208@gmail.com>
+Date:   Wed Aug 20 15:20:07 2014 -0600
+
+    Create .gitignore

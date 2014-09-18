@@ -138,12 +138,6 @@
     <Content Include="Scripts\controllers.spec.js">
       <DependentUpon>controllers.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\Controllers\LeaguesController.js" />
-    <Content Include="Scripts\Controllers\AboutController.js" />
-    <Content Include="Scripts\Controllers\Error404Controller.js" />
-    <Content Include="Scripts\Controllers\HomeController.js" />
-    <Content Include="Scripts\Controllers\LoginController.js" />
-    <Content Include="Scripts\Controllers\RegisterController.js" />
     <Content Include="Scripts\directives.js" />
     <Content Include="Scripts\directives.spec.js">
       <DependentUpon>directives.js</DependentUpon>
@@ -152,15 +146,10 @@
     <Content Include="Scripts\filters.spec.js">
       <DependentUpon>filters.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\routingConfig.js" />
     <Content Include="Scripts\services.js" />
     <Content Include="Scripts\services.spec.js">
       <DependentUpon>services.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\Services\AccountService.js" />
-    <Content Include="Scripts\Services\AuthService.js" />
-    <Content Include="Scripts\Services\LeaguesService.js" />
-    <Content Include="Scripts\Services\ServerService.js" />
     <Content Include="Scripts\vendor\angular-csp.css" />
     <Content Include="Scripts\vendor\angular-ui-router.js" />
     <Content Include="Scripts\vendor\angular-ui-router.min.js" />
@@ -497,6 +486,13 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="robots.txt" />
+    <Content Include="Views\forgot-password.cshtml" />
+    <Content Include="Views\register.cshtml" />
+    <Content Include="Views\my-table.cshtml" />
+    <Content Include="Views\admin-settings.cshtml" />
+    <Content Include="Views\predict-a-goal.cshtml" />
+    <Content Include="Views\leagues.cshtml" />
+    <None Include="Views\soccerfield.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -506,8 +502,6 @@
     <Content Include="Views\_Layout.cshtml" />
     <Content Include="Views\_PageStart.cshtml" />
     <Content Include="Views\About.cshtml" />
-    <Content Include="Views\Register.cshtml" />
-    <Content Include="Views\Leagues.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -522,6 +516,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Routing\DefaultRoute.cs" />
     <Compile Include="Routing\DefaultRouteHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -529,10 +528,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
+    <Folder Include="Resources\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
